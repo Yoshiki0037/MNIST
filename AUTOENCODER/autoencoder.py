@@ -110,3 +110,34 @@ if __name__ == '__main__':
 
         plt.tight_layout()
         plt.show()
+    n=15
+    x_batch = xp.asarray(x_test[:n])
+    y_batch = best_model(x_batch)   
+    y_batch = cuda.to_cpu(y_batch.data)
+    for i in range(n):
+        x=x_test[i]
+        plt.matshow(x.reshape(28, 28), cmap=plt.cm.gray)
+        plt.show()
+        plt.matshow(y_batch[i].reshape(28, 28), cmap=plt.cm.gray)
+        plt.show()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
